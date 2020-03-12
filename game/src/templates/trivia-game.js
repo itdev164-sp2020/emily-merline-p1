@@ -6,8 +6,14 @@ import styled from 'styled-components'
 const TriviaGame = ({ data }) => {
     const { gameTitle, questionObject, buttonColor } = data.contentfulTriviaGame
 
+    const bgColor = () => {
+        if(buttonColor !== null)
+            return buttonColor
+        else
+            return "#006699"
+    }
     const AnswerBtn = styled.div`
-    background-color: #006699 ${buttonColor}; 
+    background-color: ${bgColor}; 
     border: none;
     margin: 5px;
     color: white;
