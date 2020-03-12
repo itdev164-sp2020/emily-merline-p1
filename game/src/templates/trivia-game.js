@@ -4,13 +4,13 @@ import Layout from '../components/layout'
 import styled from 'styled-components'
 
 const TriviaGame = ({ data }) => {
-    const { gameTitle, questionObject} = data.contentfulTriviaGame
+    const { gameTitle, questionObject, buttonColor } = data.contentfulTriviaGame
 
     const AnswerBtn = styled.div`
-    background-color: #4CAF50; 
+    background-color: #006699 ${buttonColor}; 
     border: none;
     margin: 5px;
-    olor: white;
+    color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -53,6 +53,7 @@ query triviaGameQuery($slug: String!) {
     contentfulTriviaGame(slug: {eq: $slug}) {
       gameTitle
       slug
+      buttonColor
       questionObject {
         answers {
           answer
